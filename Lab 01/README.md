@@ -31,7 +31,7 @@ Make sure java is installed successfully using:
 java -version
 ```
 
-![alt text](./images/jen-install-01.png)
+![alt text](https://raw.githubusercontent.com/AhnafNabil/Jenkins-Labs/main/Lab%2001/images/jen-install-01.png)
 
 ### Step 3: Add Jenkins Debian Repository
 
@@ -73,13 +73,13 @@ To verify that Jenkins is running:
 sudo systemctl status jenkins
 ```
 
-![alt text](./images/jen-install-02.png)
+![alt text](https://raw.githubusercontent.com/AhnafNabil/Jenkins-Labs/main/Lab%2001/images/jen-install-02.png)
 
 ### Step 7: Access Jenkins
 
 By default, Jenkins runs on port 8080. You can access it by navigating to `http://your_server_ip:8080` in your web browser.
 
-![alt text](./images/jen-install-03.png)
+![alt text](https://raw.githubusercontent.com/AhnafNabil/Jenkins-Labs/main/Lab%2001/images/jen-install-03.png)
 
 ### Step 8: Unlock Jenkins
 
@@ -95,15 +95,15 @@ Enter the password on the Jenkins setup page to proceed.
 
 During the initial setup, choose "Install Suggested Plugins." This will install all the required plugins for building and managing Jenkins projects. The installation might take a few minutes.
 
-![alt text](./images/jen-install-04.png)
+![alt text](https://raw.githubusercontent.com/AhnafNabil/Jenkins-Labs/main/Lab%2001/images/jen-install-04.png)
 
-![alt text](./images/jen-install-05.png)
+![alt text](https://raw.githubusercontent.com/AhnafNabil/Jenkins-Labs/main/Lab%2001/images/jen-install-05.png)
 
 ### Step 10: Create Admin User
 
 After the plugins are installed, you will be prompted to create an admin user. Enter the desired username and password, then click "Save and Finish."
 
-![alt text](./images/jen-install-06.png)
+![alt text](https://raw.githubusercontent.com/AhnafNabil/Jenkins-Labs/main/Lab%2001/images/jen-install-06.png)
 
 ## Installing Jenkins Using Docker
 
