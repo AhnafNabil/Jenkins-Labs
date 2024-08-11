@@ -152,7 +152,7 @@ Before you can add a Jenkins agent node, ensure the following requirements are m
 
     ![alt text](https://github.com/Konami33/Jenkins-Labs/raw/main/Lab%2003/images/image-14.png)
 
-    - You can also check the build history of the agent node you have create.
+    - You can also check the build history of the agent node that you have created.
 
     ![alt text](https://github.com/Konami33/Jenkins-Labs/raw/main/Lab%2003/images/image-15.png)
 
