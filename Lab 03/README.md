@@ -2,14 +2,14 @@
 
 In this guide, we'll walk you through the process of configuring a Jenkins agent node using SSH keys. This setup allows Jenkins to securely communicate with the agent node, enabling remote job execution.
 
-![alt text](./images/image-17.png)
+![alt text](https://github.com/Konami33/Jenkins-Labs/raw/main/Lab%2003/images/image-17.png)
 
 ## Prerequisites for Jenkins Agent
 
 Before you can add a Jenkins agent node, ensure the following requirements are met on the agent machine:
 - **Agent Node**: Ensure you have an `Ubuntu Machine` as an agent server to follow this guide.
 
-    ![alt text](./images/image.png)
+    ![alt text](https://github.com/Konami33/Jenkins-Labs/raw/main/Lab%2003/images/image.png)
 
 - **Java**: Install Java on the agent server, as Jenkins requires Java to run.
     - To verify installation, run:
@@ -32,19 +32,19 @@ Before you can add a Jenkins agent node, ensure the following requirements are m
 1. **Access Jenkins Dashboard**:
    - Navigate to your Jenkins dashboard.
 
-![alt text](./images/image-1.png)
+![alt text](https://github.com/Konami33/Jenkins-Labs/raw/main/Lab%2003/images/image-1.png)
 
 2. **Manage Nodes**:
    - Go to **Manage Jenkins** > **Nodes**.
 
-![alt text](./images/image-2.png)
+![alt text](https://github.com/Konami33/Jenkins-Labs/raw/main/Lab%2003/images/image-2.png)
 
 3. **Add New Node**:
    - Click on **New Node**.
    - Enter a name for the node.
    - Select **Permanent Agent** and click **Create** to proceed with node creation.
 
-![alt text](./images/image-3.png)
+![alt text](https://github.com/Konami33/Jenkins-Labs/raw/main/Lab%2003/images/image-3.png)
 
 ### Step 2: Set Up SSH Key Pair on the Agent Machine
 
@@ -58,7 +58,7 @@ Before you can add a Jenkins agent node, ensure the following requirements are m
      ```
    - Press **Enter** to accept default file locations and settings when prompted.
 
-   ![alt text](./images/image-4.png)
+   ![alt text](https://github.com/Konami33/Jenkins-Labs/raw/main/Lab%2003/images/image-4.png)
 
 3. **Add Public Key to `authorized_keys`**:
    - Append the public key to the `~/.ssh/authorized_keys` file to enable SSH access:
@@ -83,13 +83,13 @@ Before you can add a Jenkins agent node, ensure the following requirements are m
    - Choose **SSH Username with private key** from the **Kind** dropdown.
    - Provide an **ID** for the credentials (e.g., `agent1`).
 
-   ![alt text](./images/image-5.png)
+   ![alt text](https://github.com/Konami33/Jenkins-Labs/raw/main/Lab%2003/images/image-5.png)
 
    - Enter the following details:
      - **Username**: Enter the username of the agent machine.
      - **Private Key**: Select **Enter directly** and paste the contents of the private key (`id_rsa`) you copied earlier.
 
-     ![alt text](./images/image-6.png)
+     ![alt text](https://github.com/Konami33/Jenkins-Labs/raw/main/Lab%2003/images/image-6.png)
 
    - Click **OK** to save the credentials.
 
@@ -102,42 +102,42 @@ Before you can add a Jenkins agent node, ensure the following requirements are m
      - **Number of executors**: Specify the number of executors. Enter the number of    executors you want for this node. For example, setting this to 2 means the node can handle two concurrent builds.
      - **Remote Root Directory**: Specify the directory on the agent machine where Jenkins will run commands (e.g., `/opt/jenkins`).
 
-     ![alt text](./images/image-7.png)
+     ![alt text](https://github.com/Konami33/Jenkins-Labs/raw/main/Lab%2003/images/image-7.png)
 
      - **Labels**: Give it a label to use it in the job. (e.g, `agent1`).
      - **Launch Method**: Choose **Launch agents via SSH**.
      - **Host**: Enter the IP address or hostname of the agent machine.
      - **Credentials**: Select the SSH credentials you created.
 
-     ![alt text](./images/image-16.png) 
+     ![alt text](https://github.com/Konami33/Jenkins-Labs/raw/main/Lab%2003/images/image-16.png) 
 
 2. **Host Key Verification Strategy**:
    - Optionally, configure the **Host Key Verification Strategy**. For now, you can use `Non verifying Verfication Strategy`. This strategy is a setting that instructs Jenkins to not perform any host key verification when establishing an SSH connection to a remote agent. Though it is not recommended to use, as it has `Security Risks: Man-in-the-Middle Attacks`. But for `Convenience`, we can use it to simplify the initial setup or testing phases.
 
 3. Leave the other configuration blank for now.
 
-![alt text](./images/image-11.png)
+![alt text](https://github.com/Konami33/Jenkins-Labs/raw/main/Lab%2003/images/image-11.png)
 
 3. Select `Save` and check the log of the agent if everything is correct.
 
-![alt text](./images/image-8.png)
+![alt text](https://github.com/Konami33/Jenkins-Labs/raw/main/Lab%2003/images/image-8.png)
 
 4. After successfull authentication, you will have an agent node in the node dashboard.
 
-![alt text](./images/image-9.png)
+![alt text](https://github.com/Konami33/Jenkins-Labs/raw/main/Lab%2003/images/image-9.png)
 
 ### Step 5: Test the Jenkins Agent
 
 1. **Create a Test Job**:
    - In Jenkins, create a new job (e.g., a Freestyle project).
 
-   ![alt text](./images/image-12.png)
+   ![alt text](https://github.com/Konami33/Jenkins-Labs/raw/main/Lab%2003/images/image-12.png)
 
 2. **Assign the Node**:
    - Configure the job to run on the specific agent node by using the **Restrict where this project can be run** option.
    - Enter the label you assigned to the node during its setup.
 
-   ![alt text](./images/image-13.png)
+   ![alt text](https://github.com/Konami33/Jenkins-Labs/raw/main/Lab%2003/images/image-13.png)
 
 3. **Run a Test Job**:
    - Add a simple build step, such as a shell script, to verify the agent's functionality:
@@ -150,10 +150,10 @@ Before you can add a Jenkins agent node, ensure the following requirements are m
 
     - Verify that the job executed correctly and the output matches the expected result.
 
-    ![alt text](./images/image-14.png)
+    ![alt text](https://github.com/Konami33/Jenkins-Labs/raw/main/Lab%2003/images/image-14.png)
 
     - You can also check the build history of the agent node you have create.
 
-    ![alt text](./images/image-15.png)
+    ![alt text](https://github.com/Konami33/Jenkins-Labs/raw/main/Lab%2003/images/image-15.png)
 
 By following these steps, you should have a fully configured Jenkins agent node using SSH keys, ready for executing Jenkins jobs remotely.
