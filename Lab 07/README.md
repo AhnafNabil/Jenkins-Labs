@@ -14,15 +14,15 @@ The example Java application used is from the GitHub repository [simple-java-mav
 
 Here is the grafical representation of the our project.
 
-
+![alt text](./images/image-11.png)
 
 ## Prerequisites
 
 1. Ensure your Jenkins server is up and running.
 2. Ensure Jenkins agent node connected to the controller and online.
-![alt text](image-10.png)
+![alt text](./images/image-10.png)
 3. Java is installed in the Agent node. Check it by running `java --version`. Make sure to have the same version of java both in Jenkins controller node and agent node.
-![alt text](image.png)
+![alt text](./images/image.png)
 
 
 ## Step-by-Step Guide
@@ -51,11 +51,11 @@ Here is the grafical representation of the our project.
 2. Enter a name for your job, e.g., "Simple Java Maven App", and select **Freestyle project**.
 3. Click **OK** to create the job.
 
-![alt text](image-1.png)
+![alt text](./images/image-1.png)
 
 4. Mark `Restrict where this project can be run` and add the Label of your agent node.
 
-![alt text](image-2.png)
+![alt text](./images/image-2.png)
 
 5. In the **Source Code Management** section, select **Git** and enter the URL of the GitHub repository:
 
@@ -63,11 +63,11 @@ Here is the grafical representation of the our project.
    https://github.com/Konami33/simple-java-maven-app
    ```
 
-![alt text](image-3.png)
+![alt text](./images/image-3.png)
 
 5. Save the configuration and build the job. This will clone the repository from GitHub.
 
-![alt text](image-4.png)
+![alt text](./images/image-4.png)
 
 ### Step 3: Configure the Build Step
 
@@ -112,18 +112,18 @@ Here is the grafical representation of the our project.
 
    Replace `<path_to_your_jar_file>` with the path to your JAR file, typically found in `/var/jenkins_home/workspace/your_job_name/target/`.
 
-   ![alt text](image-5.png)
+   ![alt text](./images/image-5.png)
 
 ### Step 6: Build the job
 
 1. Build the job and check the output console for any error.
 
 - build step:
-![alt text](image-6.png)
+![alt text](./images/image-6.png)
 - test step:
-![alt text](image-7.png)
+![alt text](./images/image-7.png)
 - deploy step:
-![alt text](image-8.png)
+![alt text](./images/image-8.png)
 
 ### Step 6: Visualize the Build Results
 
@@ -145,7 +145,7 @@ Here is the grafical representation of the our project.
 
 4. Save the configuration and build the job. This will publish the test results on the Jenkins dashboard with graphical representations such as graphs and charts.
 
-   ![alt text](image-9.png)
+   ![alt text](./images/image-9.png)
 
 ---
 
