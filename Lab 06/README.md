@@ -2,6 +2,8 @@
 
 This guide demonstrates how to use Jenkins to build a Java application with Maven. For this tutorial, we are using the built-in Jenkins node to execute the jobs. In future configurations, we will explore using Jenkins agents for handling build jobs. Additionally, we will use a Freestyle project for this setup.
 
+![alt text](https://github.com/Konami33/Jenkins-Labs/blob/main/Lab%2006/images/arch.png?raw=true)
+
 The tutorial covers the following tasks:
 
 1. Create a Jenkins job to build and test a Java application using Maven.
