@@ -1,22 +1,29 @@
-# Building a Java Application with Maven Using Jenkins
+# Build a Java application with Maven using Jenkins Agent node
 
-This guide demonstrates how to use Jenkins to build a Java application with Maven. For this tutorial, we are using the built-in Jenkins node to execute the jobs. In future configurations, we will explore using Jenkins agents for handling build jobs. Additionally, we will use a Freestyle project for this setup.
-
-![alt text](https://github.com/Konami33/Jenkins-Labs/blob/main/Lab%2006/images/arch.png?raw=true)
+This guide demonstrates how to use Jenkins to build a Java application with Maven. For this tutorial, we are using the Jenkins agents for handling build jobs. Additionally, we will use a Freestyle project for this setup. In future configurations, we will explore using pipeline projects.
 
 The lab covers the following tasks:
 
 1. Create a Jenkins job to build and test a Java application using Maven.
-2. Run the Jenkins job to build and test the Java application.
+2. Run the Jenkins job on `agent node` to build and test the Java application.
 3. View the build results in Jenkins.
 4. Configure the job to deploy the JAR file locally.
 5. Visualize the build results graphically.
 
 The example Java application used is from the GitHub repository [simple-java-maven-app](https://github.com/Konami33/simple-java-maven-app). It outputs "Hello world!" and includes unit tests. The test results are saved in a **JUnit XML report**, which will be used for visualization.
 
+Here is the graphical representation of what we will do in this lab.
+
+![alt text](https://github.com/Konami33/Jenkins-Labs/raw/main/Lab%2007/images/image-11.png)
+
 ## Prerequisites
 
 1. Ensure your Jenkins server is up and running.
+2. Ensure Jenkins agent node connected to the controller and online.
+![alt text](https://github.com/Konami33/Jenkins-Labs/raw/main/Lab%2007/images/image-10.png)
+3. Java is installed in the Agent node. Check it by running `java --version`. Make sure to have the same version of java both in Jenkins controller node and agent node.
+![alt text](https://github.com/Konami33/Jenkins-Labs/raw/main/Lab%2007/images/image.png)
+
 
 ## Step-by-Step Guide
 
@@ -44,23 +51,23 @@ The example Java application used is from the GitHub repository [simple-java-mav
 2. Enter a name for your job, e.g., "Simple Java Maven App", and select **Freestyle project**.
 3. Click **OK** to create the job.
 
-   ![Create New Job](https://github.com/Konami33/Jenkins-Labs/blob/main/Lab%2006/images/image.png?raw=true)
+![alt text](https://github.com/Konami33/Jenkins-Labs/raw/main/Lab%2007/images/image-1.png)
 
-4. In the **Source Code Management** section, select **Git** and enter the URL of the GitHub repository:
+4. Mark `Restrict where this project can be run` and add the Label of your agent node.
+
+![alt text](https://github.com/Konami33/Jenkins-Labs/raw/main/Lab%2007/images/image-2.png)
+
+5. In the **Source Code Management** section, select **Git** and enter the URL of the GitHub repository:
 
    ```sh
    https://github.com/Konami33/simple-java-maven-app
    ```
 
-   ![Configure Source Code Management](https://github.com/Konami33/Jenkins-Labs/blob/main/Lab%2006/images/image-1.png?raw=true)
+![alt text](https://github.com/Konami33/Jenkins-Labs/raw/main/Lab%2007/images/image-3.png)
 
 5. Save the configuration and build the job. This will clone the repository from GitHub.
 
-   ![Build Job](https://github.com/Konami33/Jenkins-Labs/blob/main/Lab%2006/images/image-2.png?raw=true)
-
-6. In the workspace section, you should see the repository files.
-
-   ![Workspace Files](https://github.com/Konami33/Jenkins-Labs/blob/main/Lab%2006/images/image-3.png?raw=true)
+![alt text](https://github.com/Konami33/Jenkins-Labs/raw/main/Lab%2007/images/image-4.png)
 
 ### Step 3: Configure the Build Step
 
@@ -79,10 +86,6 @@ The example Java application used is from the GitHub repository [simple-java-mav
 
    ![Configure Maven Goals](https://github.com/Konami33/Jenkins-Labs/blob/main/Lab%2006/images/image-7.png?raw=true)
 
-5. Save the configuration and build the job. This will build and package the application. Check the console output for a successful build.
-
-   ![Build Output](https://github.com/Konami33/Jenkins-Labs/blob/main/Lab%2006/images/image-8.png?raw=true)
-
 ### Step 4: Configure the Test Step
 
 1. Go to the **Configure** section of the job.
@@ -96,9 +99,6 @@ The example Java application used is from the GitHub repository [simple-java-mav
 
    ![Configure Test Goals](https://github.com/Konami33/Jenkins-Labs/blob/main/Lab%2006/images/image-9.png?raw=true)
 
-5. Save the configuration and build the job. This will run the tests on the application. Check the console output for a successful test run.
-
-   ![Test Output](https://github.com/Konami33/Jenkins-Labs/blob/main/Lab%2006/images/image-10.png?raw=true)
 
 ### Step 5: Deploy the JAR File
 
@@ -112,19 +112,24 @@ The example Java application used is from the GitHub repository [simple-java-mav
 
    Replace `<path_to_your_jar_file>` with the path to your JAR file, typically found in `/var/jenkins_home/workspace/your_job_name/target/`.
 
-   ![Deploy JAR](https://github.com/Konami33/Jenkins-Labs/blob/main/Lab%2006/images/image-12.png?raw=true)
+   ![alt text](https://github.com/Konami33/Jenkins-Labs/raw/main/Lab%2007/images/image-5.png)
 
-4. Save the configuration and build the job. This will run the Java application. Check the console output for a successful run.
+### Step 6: Build the job
 
-   ![Deployment Output](https://github.com/Konami33/Jenkins-Labs/blob/main/Lab%2006/images/image-13.png?raw=true)
+1. Build the job and check the output console for any error.
+
+- build step:
+![alt text](https://github.com/Konami33/Jenkins-Labs/raw/main/Lab%2007/images/image-6.png)
+- test step:
+![alt text](https://github.com/Konami33/Jenkins-Labs/raw/main/Lab%2007/images/image-7.png)
+- deploy step:
+![alt text](https://github.com/Konami33/Jenkins-Labs/raw/main/Lab%2007/images/image-8.png)
 
 ### Step 6: Visualize the Build Results
 
 1. In the **Workspace** directory of the job, navigate to:
 
    **Workspace** -> **YOUR_JOB_NAME** -> **target** -> **surefire-reports**. Locate the XML file containing the build information.
-
-   ![Locate XML Report](https://github.com/Konami33/Jenkins-Labs/blob/main/Lab%2006/images/image-14.png?raw=true)
 
 2. Return to the job configuration and scroll down to **Post-build Actions**. Click **Add post-build action** and select **Publish JUnit test result report**.
 
@@ -140,10 +145,10 @@ The example Java application used is from the GitHub repository [simple-java-mav
 
 4. Save the configuration and build the job. This will publish the test results on the Jenkins dashboard with graphical representations such as graphs and charts.
 
-   ![Test Result Visualization](https://github.com/Konami33/Jenkins-Labs/blob/main/Lab%2006/images/image-17.png?raw=true)
+   ![alt text](https://github.com/Konami33/Jenkins-Labs/raw/main/Lab%2007/images/image-9.png)
 
 ---
 
 ## Conclusion
 
-You have successfully set up Jenkins to build, test, deploy, and visualize the results of a Java application using Maven.
+You have successfully set up Jenkins to build, test, deploy, and visualize the results of a Java application using Maven. 
