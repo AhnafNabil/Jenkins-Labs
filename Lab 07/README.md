@@ -2,7 +2,7 @@
 
 This guide demonstrates how to use Jenkins to build a Java application with Maven. For this tutorial, we are using the Jenkins agents for handling build jobs. Additionally, we will use a Freestyle project for this setup. In future configurations, we will explore using pipeline projects.
 
-The tutorial covers the following tasks:
+The lab covers the following tasks:
 
 1. Create a Jenkins job to build and test a Java application using Maven.
 2. Run the Jenkins job on `agent node` to build and test the Java application.
@@ -12,7 +12,7 @@ The tutorial covers the following tasks:
 
 The example Java application used is from the GitHub repository [simple-java-maven-app](https://github.com/Konami33/simple-java-maven-app). It outputs "Hello world!" and includes unit tests. The test results are saved in a **JUnit XML report**, which will be used for visualization.
 
-Here is the grafical representation of the our project.
+Here is the graphical representation of what we will do in this lab.
 
 ![alt text](https://github.com/Konami33/Jenkins-Labs/raw/main/Lab%2007/images/image-11.png)
 

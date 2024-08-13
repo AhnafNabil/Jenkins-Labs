@@ -4,7 +4,7 @@ This guide demonstrates how to use Jenkins to build a Java application with Mave
 
 ![alt text](https://github.com/Konami33/Jenkins-Labs/blob/main/Lab%2006/images/arch.png?raw=true)
 
-The tutorial covers the following tasks:
+The lab covers the following tasks:
 
 1. Create a Jenkins job to build and test a Java application using Maven.
 2. Run the Jenkins job to build and test the Java application.
