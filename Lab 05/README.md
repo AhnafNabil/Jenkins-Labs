@@ -6,6 +6,8 @@ By default, Jenkins runs on port 8080 after installation. However, there are sce
 1. **Using IP Table Forwarding Rule**
 2. **Using Nginx as a Reverse Proxy**
 
+![alt text](./images/method-diagram.png)
+
 ## Prerequisites
 - Create two EC2 instances for checking both the methods.
 
